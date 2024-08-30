@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIP File Viewer</title>
+</head>
+<body>
+    <h1>Remote ZIP File Viewer</h1>
+    <form method="POST">
+        <label for="url">Enter ZIP File URL:</label>
+        <input type="text" id="url" name="url" required value="{{ url }}">
+        <button type="submit">View Files</button>
+    </form>
+
+    {% if files %}
+    <h2>Files in ZIP:</h2>
+    <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ url_for('download_file', url=url, file=file) }}">{{ file }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% elif url %}
+    <p>No files found or an error occurred.</p>
+    {% endif %}
+</body>
+</html>
