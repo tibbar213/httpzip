@@ -6,5 +6,6 @@
 
 ```bash
 cd httpzip
-docker build --network=host -t flask-zip-viewer . && docker run -d -p 5000:5000 --name flask-zip-viewer-container flask-zip-viewer
+docker build --network=host -t flask-zip-viewer .
+docker run -d -p 5000:5000 --name flask-zip-viewer-container flask-zip-viewer
 ```
